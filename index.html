@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Quest</title>
-    <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -17,6 +15,28 @@
             <button type="submit">Mulai</button>
         </form>
     </div>
-    <script src="app.js"></script>
+    <script>
+        // Logic untuk form
+        document.getElementById('userForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Mencegah form dari pengiriman default
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+
+            if (name && age) {
+                // Simpan data ke localStorage
+                localStorage.setItem('name', name);
+                localStorage.setItem('age', age);
+                localStorage.setItem('level', '1'); // Level awal
+                localStorage.setItem('xp', '0'); // XP awal
+                localStorage.setItem('rank', 'F'); // Tingkatan awal
+
+                // Redirect ke halaman utama
+                window.location.href = 'home.html';
+            } else {
+                alert('Harap isi nama dan umur dengan benar!');
+            }
+        });
+    </script>
 </body>
 </html>
