@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Quest</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -48,5 +49,16 @@
             }
         });
     </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js')
+            .then((registration) => {
+              console.log('Service Worker terdaftar dengan scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.error('Pendaftaran Service Worker gagal:', error);
+            });
+        }
+      </script>
 </body>
 </html>

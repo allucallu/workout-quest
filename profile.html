@@ -6,6 +6,7 @@
     <title>Workout Quest - Profil</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Library Chart.js -->
+    <link rel="manifest" href="manifest.json">
 
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
@@ -91,5 +92,16 @@
         });
     </script>
     <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js')
+            .then((registration) => {
+              console.log('Service Worker terdaftar dengan scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.error('Pendaftaran Service Worker gagal:', error);
+            });
+        }
+      </script>
 </body>
 </html>
