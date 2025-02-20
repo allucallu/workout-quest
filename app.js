@@ -1,4 +1,5 @@
 // Fungsi untuk menyimpan data pengguna
+// Fungsi untuk menyimpan data pengguna
 function saveUserData(name, age) {
     localStorage.setItem('name', name);
     localStorage.setItem('age', age);
@@ -26,6 +27,11 @@ function fillProfileData() {
     document.getElementById('userRank').textContent = userData.rank;
 }
 
+// Panggil fungsi fillProfileData di halaman profil
+if (window.location.pathname.endsWith('profile.html')) {
+    fillProfileData();
+}
+
 // Fungsi untuk menghitung jarak antara dua koordinat (dalam KM)
 function calculateDistance(pos1, pos2) {
     const R = 6371; // Radius bumi dalam KM
@@ -41,6 +47,7 @@ function calculateDistance(pos1, pos2) {
 }
 
 // Fungsi untuk mengupdate XP, level, dan tingkatan
+// Fungsi untuk mengupdate XP, level, dan tingkatan
 function updateXp(xpEarned) {
     let currentXp = parseInt(localStorage.getItem('xp')) || 0;
     currentXp += xpEarned;
@@ -55,10 +62,29 @@ function updateXp(xpEarned) {
     const rankIndex = Math.min(Math.floor(level / 5), ranks.length - 1);
     localStorage.setItem('rank', ranks[rankIndex]);
 
-    // Update tampilan
-    document.getElementById('xp').textContent = currentXp;
-    document.getElementById('userLevel').textContent = level;
-    document.getElementById('userRank').textContent = ranks[rankIndex];
+    // Update tampilan di halaman profil
+    if (window.location.pathname.endsWith('profile.html')) {
+        fillProfileData();
+    }
+}
+
+// Contoh pemanggilan updateXp setelah lari
+function stopTracking() {
+    if (!isRunning) return;
+
+    isRunning = false;
+    document.getElementById('startRun').disabled = false;
+    document.getElementById('stopRun').disabled = true;
+    trackingStatus.textContent = 'Status: Tidak aktif';
+
+    if (watchId) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
+    }
+
+    const xpEarned = Math.round(distance * 100);
+    updateXp(xpEarned); // Update XP, level, dan tingkatan
+    saveRunHistory(distance, xpEarned); // Simpan riwayat lari
 }
 
 // Logic untuk halaman awal (index.html)
@@ -88,42 +114,45 @@ if (window.location.pathname.endsWith('home.html')) {
     document.getElementById('startRun').addEventListener('click', startTracking);
     document.getElementById('stopRun').addEventListener('click', stopTracking);
 
-    function startTracking() {
-        if (isRunning) return;
+        const trackingStatus = document.getElementById('trackingStatus');
 
-        isRunning = true;
-        document.getElementById('startRun').disabled = true;
-        document.getElementById('stopRun').disabled = false;
+            function startTracking() {
+                if (isRunning) return;
 
-        if (navigator.geolocation) {
-            startPos = null;
-            distance = 0;
-            watchId = navigator.geolocation.watchPosition(updatePosition, handleError, {
-                enableHighAccuracy: true,
-                timeout: 5000,
-                maximumAge: 0
-            });
-        } else {
-            alert('Geolocation tidak didukung di browser ini.');
-        }
-    }
+                isRunning = true;
+                document.getElementById('startRun').disabled = true;
+                document.getElementById('stopRun').disabled = false;
+                trackingStatus.textContent = 'Status: Aktif';
 
-    function stopTracking() {
-        if (!isRunning) return;
+                if (navigator.geolocation) {
+                    startPos = null;
+                    distance = 0;
+                    watchId = navigator.geolocation.watchPosition(updatePosition, handleError, {
+                        enableHighAccuracy: true,
+                        timeout: 5000,
+                        maximumAge: 0
+                    });
+                } else {
+                    alert('Geolocation tidak didukung di browser ini.');
+                }
+            }
 
-        isRunning = false;
-        document.getElementById('startRun').disabled = false;
-        document.getElementById('stopRun').disabled = true;
+            function stopTracking() {
+                if (!isRunning) return;
 
-        if (watchId) {
-            navigator.geolocation.clearWatch(watchId);
-            watchId = null;
-        }
+                isRunning = false;
+                document.getElementById('startRun').disabled = false;
+                document.getElementById('stopRun').disabled = true;
+                trackingStatus.textContent = 'Status: Tidak aktif';
 
-        // Hitung XP berdasarkan jarak (1 KM = 100 XP)
-        const xpEarned = Math.round(distance * 100);
-        updateXp(xpEarned);
-    }
+                if (watchId) {
+                    navigator.geolocation.clearWatch(watchId);
+                    watchId = null;
+                }
+
+                const xpEarned = Math.round(distance * 100);
+                updateXp(xpEarned);
+            }
 
     function updatePosition(position) {
         if (!startPos) {
@@ -196,4 +225,41 @@ if (window.location.pathname.endsWith('profile.html')) {
             }
         }
     });
+
+    function saveRunHistory(distance, xpEarned) {
+        const runHistory = JSON.parse(localStorage.getItem('runHistory')) || [];
+        runHistory.push({ distance: distance.toFixed(2), xp: xpEarned, date: new Date().toLocaleString() });
+        localStorage.setItem('runHistory', JSON.stringify(runHistory));
+    }
+    
+    function stopTracking() {
+        if (!isRunning) return;
+    
+        isRunning = false;
+        document.getElementById('startRun').disabled = false;
+        document.getElementById('stopRun').disabled = true;
+        trackingStatus.textContent = 'Status: Tidak aktif';
+    
+        if (watchId) {
+            navigator.geolocation.clearWatch(watchId);
+            watchId = null;
+        }
+    
+        const xpEarned = Math.round(distance * 100);
+        updateXp(xpEarned);
+        saveRunHistory(distance, xpEarned); // Simpan riwayat lari
+    }
+
+    function displayRunHistory() {
+        const runHistory = JSON.parse(localStorage.getItem('runHistory')) || [];
+        const runHistoryList = document.getElementById('runHistoryList');
+        runHistoryList.innerHTML = runHistory.map(run => `
+            <li>${run.date} - Jarak: ${run.distance} KM, XP: ${run.xp}</li>
+        `).join('');
+    }
+    
+    if (window.location.pathname.endsWith('profile.html')) {
+        fillProfileData();
+        displayRunHistory(); // Tampilkan riwayat lari
+    }
 }

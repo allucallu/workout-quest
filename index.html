@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Quest</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -18,23 +19,20 @@
     <script>
         // Logic untuk form
         document.getElementById('userForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Mencegah form dari pengiriman default
-
-            const name = document.getElementById('name').value;
-            const age = document.getElementById('age').value;
-
-            if (name && age) {
-                // Simpan data ke localStorage
+            e.preventDefault();
+        
+            const name = document.getElementById('name').value.trim();
+            const age = parseInt(document.getElementById('age').value);
+        
+            if (name && !isNaN(age) && age > 0) {
                 localStorage.setItem('name', name);
                 localStorage.setItem('age', age);
-                localStorage.setItem('level', '1'); // Level awal
-                localStorage.setItem('xp', '0'); // XP awal
-                localStorage.setItem('rank', 'F'); // Tingkatan awal
-
-                // Redirect ke halaman utama
+                localStorage.setItem('level', '1');
+                localStorage.setItem('xp', '0');
+                localStorage.setItem('rank', 'F');
                 window.location.href = 'home.html';
             } else {
-                alert('Harap isi nama dan umur dengan benar!');
+                alert('Harap isi nama dan umur dengan benar! Umur harus berupa angka positif.');
             }
         });
     </script>

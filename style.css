@@ -130,6 +130,32 @@ form button:hover {
     border: 1px solid #00bfff; /* Border biru neon */
 }
 
+.run-history {
+    background-color: rgba(20, 20, 40, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #00bfff;
+}
+
+.run-history h2 {
+    color: #00ffff;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.run-history ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.run-history li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
 /* Responsive Styles */
 @media (max-width: 600px) {
     .profile-grid {
@@ -217,6 +243,13 @@ form button:hover {
 .quest button:hover {
     background-color: #00ffff; /* Warna biru neon lebih terang saat hover */
     transform: scale(1.05); /* Efek zoom kecil */
+}
+
+.status {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #00ffff; /* Warna biru neon */
+    text-shadow: 0 0 5px #00ffff; /* Efek glow */
 }
 
 /* Tombol Navigasi */
