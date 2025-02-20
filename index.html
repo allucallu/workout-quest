@@ -17,19 +17,31 @@
         </form>
     </div>
     <script>
+        // Cek apakah data pengguna sudah ada
+        const userName = localStorage.getItem('name');
+        const userAge = localStorage.getItem('age');
+
+        if (userName && userAge) {
+            // Jika data sudah ada, redirect ke home.html
+            window.location.href = 'home.html';
+        }
+
         // Logic untuk form
         document.getElementById('userForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-        
+            e.preventDefault(); // Mencegah form dari pengiriman default
+
             const name = document.getElementById('name').value.trim();
             const age = parseInt(document.getElementById('age').value);
-        
+
             if (name && !isNaN(age) && age > 0) {
+                // Simpan data ke localStorage
                 localStorage.setItem('name', name);
                 localStorage.setItem('age', age);
-                localStorage.setItem('level', '1');
-                localStorage.setItem('xp', '0');
-                localStorage.setItem('rank', 'F');
+                localStorage.setItem('level', '1'); // Level awal
+                localStorage.setItem('xp', '0'); // XP awal
+                localStorage.setItem('rank', 'F'); // Tingkatan awal
+
+                // Redirect ke halaman utama
                 window.location.href = 'home.html';
             } else {
                 alert('Harap isi nama dan umur dengan benar! Umur harus berupa angka positif.');
