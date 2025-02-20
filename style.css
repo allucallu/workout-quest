@@ -1,0 +1,260 @@
+/* General Styles */
+body {
+    font-family: 'MedievalSharp', cursive; /* Font fantasy */
+    background-color: #0a0a1a; /* Background hitam gelap dengan biru */
+    color: #ffffff; /* Teks putih */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(10, 10, 26, 0.9); /* Background semi-transparan */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5); /* Efek glow biru */
+}
+
+/* Header */
+header h1 {
+    text-align: center;
+    color: #00ffff; /* Warna biru neon untuk judul */
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* Efek glow biru */
+    animation: glow 2s infinite alternate; /* Animasi glow */
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+    to {
+        text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    }
+}
+
+/* Form Input */
+form {
+    background-color: rgba(20, 20, 40, 0.9); /* Background semi-transparan */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #00bfff; /* Border biru neon */
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #00bfff; /* Border biru neon */
+    border-radius: 5px;
+    background-color: rgba(30, 30, 60, 0.9); /* Background semi-transparan */
+    color: #ffffff; /* Teks putih */
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #00ffff; /* Border biru neon saat focus */
+    outline: none;
+}
+
+form input::placeholder {
+    color: #888; /* Warna placeholder */
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00bfff; /* Warna biru neon untuk tombol */
+    color: #0a0a1a; /* Warna teks gelap */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #00ffff; /* Warna biru neon lebih terang saat hover */
+    transform: scale(1.05); /* Efek zoom kecil */
+}
+
+/* Profil Pengguna */
+/* Profil Pengguna */
+.profile {
+    background-color: rgba(20, 20, 40, 0.9); /* Background semi-transparan */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #00bfff; /* Border biru neon */
+}
+
+.profile h2 {
+    color: #00ffff; /* Warna biru neon untuk judul box */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #00ffff; /* Efek glow biru */
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.profile-info {
+    background-color: rgba(30, 30, 60, 0.9); /* Background semi-transparan */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #00bfff; /* Border biru neon */
+}
+
+.profile-info p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.profile-info strong {
+    color: #00ffff; /* Warna biru neon untuk teks bold */
+    text-shadow: 0 0 5px #00ffff; /* Efek glow biru */
+}
+
+.profile-chart {
+    background-color: rgba(30, 30, 60, 0.9); /* Background semi-transparan */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #00bfff; /* Border biru neon */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Statistik */
+.stats {
+    background-color: rgba(20, 20, 40, 0.9); /* Background semi-transparan */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #00bfff; /* Border biru neon */
+}
+
+.stats h2 {
+    color: #00ffff; /* Warna biru neon untuk judul box */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #00ffff; /* Efek glow biru */
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.stat {
+    background-color: rgba(30, 30, 60, 0.9); /* Background semi-transparan */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #00bfff; /* Border biru neon */
+    transition: transform 0.3s ease;
+}
+
+.stat:hover {
+    transform: scale(1.05); /* Efek zoom kecil saat hover */
+}
+
+.stat p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.stat strong {
+    color: #00ffff; /* Warna biru neon untuk teks bold */
+    text-shadow: 0 0 5px #00ffff; /* Efek glow biru */
+}
+
+/* Quest */
+.quest {
+    background-color: rgba(20, 20, 40, 0.9); /* Background semi-transparan */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #00bfff; /* Border biru neon */
+}
+
+.quest h2 {
+    color: #00ffff; /* Warna biru neon untuk judul box */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #00ffff; /* Efek glow biru */
+}
+
+.quest p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.quest button {
+    width: 100%;
+    padding: 10px;
+    background-color: #00bfff; /* Warna biru neon untuk tombol */
+    color: #0a0a1a; /* Warna teks gelap */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.quest button:hover {
+    background-color: #00ffff; /* Warna biru neon lebih terang saat hover */
+    transform: scale(1.05); /* Efek zoom kecil */
+}
+
+/* Tombol Navigasi */
+.navigation {
+    text-align: center;
+}
+
+.navigation .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00bfff; /* Warna biru neon untuk tombol */
+    color: #0a0a1a; /* Warna teks gelap */
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navigation .btn:hover {
+    background-color: #00ffff; /* Warna biru neon lebih terang saat hover */
+    transform: scale(1.05); /* Efek zoom kecil */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .profile h2, .stats h2, .quest h2 {
+        font-size: 1.5rem;
+    }
+
+    .profile-info p, .stat p, .quest p {
+        font-size: 1rem;
+    }
+}

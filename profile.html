@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Quest - Profil</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Library Chart.js -->
+
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Workout Quest</h1>
+        </header>
+
+        <!-- Profil Pengguna -->
+        <section class="profile">
+            <h2>Profil Pengguna</h2>
+            <div class="profile-grid">
+                <!-- Kotak Pertama: Nama, Level, XP, Tingkatan -->
+                <div class="profile-info">
+                    <p><strong>Nama:</strong> <span id="userName">Sung Jinwoo</span></p>
+                    <p><strong>Level:</strong> <span id="userLevel">1</span></p>
+                    <p><strong>XP:</strong> <span id="userXp">0</span></p>
+                    <p><strong>Tingkatan:</strong> <span id="userRank">F</span></p>
+                </div>
+
+                <!-- Kotak Kedua: Diagram Melingkar -->
+                <div class="profile-chart">
+                    <canvas id="statsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tombol Navigasi -->
+        <section class="navigation">
+            <a href="home.html" class="btn">Kembali ke Beranda</a>
+        </section>
+    </div>
+
+    <script>
+        // Data untuk diagram melingkar
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        const statsChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Strength', 'Agility', 'Intelligence'],
+                datasets: [{
+                    label: 'Statistik',
+                    data: [19, 10, 10], // Data statistik
+                    backgroundColor: [
+                        '#ff6384', // Warna merah muda
+                        '#36a2eb', // Warna biru
+                        '#ffce56'  // Warna kuning
+                    ],
+                    borderColor: '#0a0a1a', // Warna border
+                    borderWidth: 2,
+                    hoverOffset: 10 // Efek hover
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#ffffff' // Warna teks legend
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}`;
+                            }
+                        }
+                    }
+                },
+                animation: {
+                    animateScale: true, // Animasi scale saat pertama kali muncul
+                    animateRotate: true // Animasi rotate saat pertama kali muncul
+                }
+            }
+        });
+    </script>
+</body>
+</html>

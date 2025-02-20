@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Quest - Home</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Workout Quest</h1>
+        </header>
+
+        <!-- Quest Lari/Jogging -->
+        <section class="quest">
+            <h2>Lari/Jogging</h2>
+            <p>Lari sejauh mungkin untuk mendapatkan XP!</p>
+            <button id="startRun">Mulai Lari</button>
+            <button id="stopRun">Selesai</button>
+        </section>
+
+        <!-- Progress Harian -->
+        <section class="stats">
+            <h2>Progress Harian</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <p><strong>Jarak:</strong> <span id="distance">0</span> KM</p>
+                </div>
+                <div class="stat">
+                    <p><strong>XP:</strong> <span id="xp">0</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tombol Navigasi -->
+        <section class="navigation">
+            <a href="profile.html" class="btn">Lihat Profil</a>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
