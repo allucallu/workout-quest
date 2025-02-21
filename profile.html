@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Library Chart.js -->
     <link rel="manifest" href="manifest.json">
-
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,13 +27,14 @@
             </div>
         </section>
 
+        <!-- Statistik -->
         <section>
-                <div class="profile-chart">
-                    <canvas id="statsChart"></canvas>
-                </div>
+            <div class="profile-chart">
+                <canvas id="statsChart"></canvas>
             </div>
         </section>
 
+        <!-- Riwayat Lari -->
         <section class="run-history">
             <h2>Riwayat Lari</h2>
             <ul id="runHistoryList"></ul>
@@ -48,68 +48,23 @@
 
     <div id="particles-js"></div>
 
-    <script>
-        // Data untuk diagram melingkar
-        const ctx = document.getElementById('statsChart').getContext('2d');
-        const statsChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Strength', 'Agility', 'Intelligence'],
-                datasets: [{
-                    label: 'Statistik',
-                    data: [19, 10, 10], // Data statistik
-                    backgroundColor: [
-                        '#ff6384', // Warna merah muda
-                        '#36a2eb', // Warna biru
-                        '#ffce56'  // Warna kuning
-                    ],
-                    borderColor: '#0a0a1a', // Warna border
-                    borderWidth: 2,
-                    hoverOffset: 10 // Efek hover
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            color: '#ffffff' // Warna teks legend
-                        }
-                    },
-                    tooltip: {
-                        enabled: true,
-                        callbacks: {
-                            label: function(context) {
-                                return `${context.label}: ${context.raw}`;
-                            }
-                        }
-                    }
-                },
-                animation: {
-                    animateScale: true, // Animasi scale saat pertama kali muncul
-                    animateRotate: true // Animasi rotate saat pertama kali muncul
-                }
-            }
-        });
-    </script>
     <script src="app.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('service-worker.js')
-            .then((registration) => {
-              console.log('Service Worker terdaftar dengan scope:', registration.scope);
-            })
-            .catch((error) => {
-              console.error('Pendaftaran Service Worker gagal:', error);
-            });
+            navigator.serviceWorker.register('service-worker.js')
+                .then((registration) => {
+                    console.log('Service Worker terdaftar dengan scope:', registration.scope);
+                })
+                .catch((error) => {
+                    console.error('Pendaftaran Service Worker gagal:', error);
+                });
         }
-      </script>
-      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-  particlesJS.load('particles-js', 'particles.json', function() {
-    console.log('Particles.js loaded');
-  });
-</script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('Particles.js loaded');
+        });
+    </script>
 </body>
 </html>
