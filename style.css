@@ -47,7 +47,7 @@ header h1 {
 
 /* Form Input */
 form {
-    background-color: rgba(20, 20, 40, 0.9); /* Background semi-transparan */
+    background-color: rgba(20, 20, 40, 0.2); /* Background semi-transparan */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -60,7 +60,7 @@ form input {
     margin-bottom: 15px;
     border: 1px solid #00bfff; /* Border biru neon */
     border-radius: 5px;
-    background-color: rgba(30, 30, 60, 0.9); /* Background semi-transparan */
+    background-color: rgba(30, 30, 60, 0.2); /* Background semi-transparan */
     color: #ffffff; /* Teks putih */
     font-size: 1rem;
     transition: border-color 0.3s ease;
@@ -95,7 +95,7 @@ form button:hover {
 /* Profil Pengguna */
 /* Profil Pengguna */
 .profile {
-    background-color: rgba(20, 20, 40, 0.9); /* Background semi-transparan */
+    background-color: rgba(20, 20, 40, 0.3); /* Background semi-transparan */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -116,7 +116,7 @@ form button:hover {
 }
 
 .profile-info {
-    background-color: rgba(30, 30, 60, 0.9); /* Background semi-transparan */
+    background-color: rgba(30, 30, 60, 0.2); /* Background semi-transparan */
     padding: 15px;
     border-radius: 8px;
     border: 1px solid #00bfff; /* Border biru neon */
@@ -133,14 +133,14 @@ form button:hover {
 }
 
 .profile-chart {
-    background-color: rgba(30, 30, 60, 0.9); /* Background semi-transparan */
+    background-color: rgba(30, 30, 60, 0.2); /* Background semi-transparan */
     padding: 15px;
     border-radius: 8px;
     border: 1px solid #00bfff; /* Border biru neon */
 }
 
 .run-history {
-    background-color: rgba(20, 20, 40, 0.9);
+    background-color: rgba(20, 20, 40, 0.2);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -173,7 +173,7 @@ form button:hover {
 }
 /* Statistik */
 .stats {
-    background-color: rgba(20, 20, 40, 0.9); /* Background semi-transparan */
+    background-color: rgba(20, 20, 40, 0.2); /* Background semi-transparan */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -194,7 +194,7 @@ form button:hover {
 }
 
 .stat {
-    background-color: rgba(30, 30, 60, 0.9); /* Background semi-transparan */
+    background-color: rgba(30, 30, 60, 0.2); /* Background semi-transparan */
     padding: 15px;
     border-radius: 8px;
     border: 1px solid #00bfff; /* Border biru neon */
@@ -217,7 +217,7 @@ form button:hover {
 
 /* Quest */
 .quest {
-    background-color: rgba(20, 20, 40, 0.9); /* Background semi-transparan */
+    background-color: rgba(20, 20, 40, 0.2); /* Background semi-transparan */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
